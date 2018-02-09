@@ -1,0 +1,7 @@
+screen -t weechat weechat
+screen -t stuff1
+screen -t stuff2
+screen -t stuff3
+screen -t git
+hardstatus alwayslastline
+hardstatus string '%{= kG}%-Lw%{= kW}%50> %n*%f %t%{= kG}%+Lw%< %{= kG}%-=%D %m/%d/%y | %C:%s %A | %1`%{-}'
