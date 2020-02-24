@@ -6,3 +6,4 @@
 
 (require 'emacs-custom)
 (require 'shell)
+(require 'notes)
