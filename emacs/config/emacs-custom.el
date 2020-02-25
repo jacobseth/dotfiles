@@ -1,3 +1,5 @@
+(require 'package-man)
+
 ;; Emacs default config
 (setq inhibit-startup-message t) 
 (setq initial-scratch-message nil)
@@ -11,5 +13,13 @@
 
 ;; Change backup location
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+
+;; Theme
+(load-theme 'wombat)
+
+;; Comp(lete)any(thing) mode
+(use-package company
+  :straight t)
+(add-hook 'after-init-hook 'global-company-mode)
 
 (provide 'emacs-custom)
