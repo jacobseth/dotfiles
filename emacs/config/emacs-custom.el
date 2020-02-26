@@ -1,7 +1,7 @@
 (require 'package-man)
 
 ;; Emacs default config
-(setq inhibit-startup-message t) 
+(setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
