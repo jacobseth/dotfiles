@@ -11,8 +11,23 @@
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
 
-;; Change backup location
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+;; Save all tempfiles in $TMPDIR/emacs$UID/
+(defconst
+  emacs-tmp-dir
+  (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
+(setq backup-directory-alist
+      `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms
+      `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix
+      emacs-tmp-dir)
+
+;; Show Whitespace
+(setq-default show-trailing-whitespace t)
+
+(require 'whitespace)
+(setq whitespace-style '(face empty tabs lines-tail trailing))
+(global-whitespace-mode t)
 
 ;; Theme
 (load-theme 'wombat)
