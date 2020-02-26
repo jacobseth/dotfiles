@@ -37,4 +37,12 @@
   :straight t)
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; I(nteractively)do(things)
+(use-package ido
+  :straight t)
+(add-hook 'after-init-hook 'global-company-mode)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
 (provide 'emacs-custom)
