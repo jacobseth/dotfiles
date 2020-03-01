@@ -9,3 +9,7 @@
 (require 'notes)
 (require 'javascript)
 (require 'handlebars)
+(require 'docker)
+(require 'go)
+(require 'markdown)
+(require 'protobuf)
