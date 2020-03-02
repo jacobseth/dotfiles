@@ -5,6 +5,9 @@
 (add-to-list 'load-path config-dir)
 
 (require 'emacs-custom)
+
+(require 'lang-server)
+
 (require 'shell)
 (require 'notes)
 (require 'javascript)
