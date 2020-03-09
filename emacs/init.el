@@ -16,3 +16,4 @@
 (require 'go)
 (require 'markdown)
 (require 'protobuf)
+(require 'typescript)

@@ -25,4 +25,6 @@
 (add-hook 'js2-mode-hook (lambda ()
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 
+(add-hook 'js2-mode-hook #'lsp)
+
 (provide 'javascript)
