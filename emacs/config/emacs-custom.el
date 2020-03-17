@@ -45,4 +45,8 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq indent-line-function 'insert-tab)
+
 (provide 'emacs-custom)
