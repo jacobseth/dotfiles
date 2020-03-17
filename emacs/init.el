@@ -17,3 +17,4 @@
 (require 'markdown)
 (require 'protobuf)
 (require 'typescript)
+(require 'version-control)
