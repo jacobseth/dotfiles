@@ -50,6 +50,20 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
+;; Neo-tree
+(use-package all-the-icons
+  :straight t)
+(use-package neotree
+  :straight (:host github :repo "jaypei/emacs-neotree"
+	    :branch "dev"))
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+(setq neo-theme 'icons)
+(defun my/disable-line-numbers (&optional dummy)
+    (display-line-numbers-mode -1))
+(add-hook 'neo-after-create-hook 'my/disable-line-numbers)
+
+;; Tab mode - possibly not good
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (setq indent-line-function 'insert-tab)
