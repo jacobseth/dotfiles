@@ -37,6 +37,11 @@
   :straight t)
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; Yasnippet
+(use-package yasnippet
+  :straight t)
+(yas-global-mode 1)
+
 ;; I(nteractively)do(things)
 (use-package ido
   :straight t)

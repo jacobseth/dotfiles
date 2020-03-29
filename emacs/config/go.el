@@ -8,4 +8,6 @@
 
 (add-hook 'go-mode-hook #'lsp)
 
+(add-to-list 'company-lsp-filter-candidates '(gopls . nil))
+
 (provide 'go)

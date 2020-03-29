@@ -7,4 +7,8 @@
 
 (setq lsp-auto-configure t)
 
+(use-package company-lsp
+  :straight t)
+(push 'company-lsp company-backends)
+
 (provide 'lang-server)
