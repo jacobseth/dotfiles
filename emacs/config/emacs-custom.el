@@ -68,4 +68,8 @@
 (setq-default tab-width 2)
 (setq indent-line-function 'insert-tab)
 
+;; transparency
+;; (set-frame-parameter (selected-frame) 'alpha '(95 . 50))
+;; (add-to-list 'default-frame-alist '(alpha . (95 . 50)))
+
 (provide 'emacs-custom)
