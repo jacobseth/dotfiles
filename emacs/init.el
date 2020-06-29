@@ -18,3 +18,4 @@
 (require 'protobuf)
 (require 'typescript)
 (require 'version-control)
+(require 'python)
