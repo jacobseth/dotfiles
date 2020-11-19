@@ -12,6 +12,9 @@
   :straight t
   :init (doom-modeline-mode 1))
 
+;; Font
+(set-frame-font "Inconsolata 12" nil t)
+
 ;; Linum Config
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
@@ -35,7 +38,10 @@
 (global-whitespace-mode t)
 
 ;; Theme
-(load-theme 'wombat)
+(use-package dracula-theme
+  :straight t)
+(load-theme 'dracula t)
+;;(load-theme 'wombat)
 
 ;; Comp(lete)any(thing) mode
 (use-package company

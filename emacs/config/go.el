@@ -3,11 +3,34 @@
 (use-package go-mode
   :straight t)
 
-(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
-(require 'go-mode)
+(use-package lsp-mode
+  :straight t
+  :commands (lsp lsp-deferred)
+  :hook (go-mode . lsp-deferred))
 
-(add-hook 'go-mode-hook #'lsp)
+;; Set up before-save hooks to format buffer and add/delete imports.
+;; Make sure you don't have other gofmt/goimports hooks enabled.
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
-(add-to-list 'company-lsp-filter-candidates '(gopls . nil))
+;; Optional - provides fancier overlays.
+(use-package lsp-ui
+  :straight t
+  :commands lsp-ui-mode)
+
+;; Company mode is a standard completion package that works well with lsp-mode.
+(use-package company
+  :straight t
+  :config
+  ;; Optionally enable completion-as-you-type behavior.
+  (setq company-idle-delay 0))
+
+;; Optional - provides snippet support.
+(use-package yasnippet
+  :straight t
+  :commands yas-minor-mode
+  :hook (go-mode . yas-minor-mode))
 
 (provide 'go)
