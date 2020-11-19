@@ -7,6 +7,11 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
+;; modeline custom
+(use-package doom-modeline
+  :straight t
+  :init (doom-modeline-mode 1))
+
 ;; Linum Config
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
