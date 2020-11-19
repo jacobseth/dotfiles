@@ -1,6 +1,9 @@
 ;; Define Config Directory
 (defconst config-dir "~/.emacs.d/config/")
 
+;; remove depr. warning for Common lisp
+(setq byte-compile-warnings '(cl-functions))
+
 ;; Add Specific Configs
 (add-to-list 'load-path config-dir)
 
@@ -8,7 +11,7 @@
 
 (require 'lang-server)
 
-(require 'shell)
+(require 'my-shell)
 (require 'notes)
 (require 'javascript)
 (require 'handlebars)
@@ -18,4 +21,4 @@
 (require 'protobuf)
 (require 'typescript)
 (require 'version-control)
-(require 'python)
+(require 'my-python)
