@@ -1,5 +1,30 @@
 (require 'package-man)
 
+;; set path for gopls
+(setenv "PATH" (concat (getenv "PATH") ":/home/jacobseth/go/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/go/bin"))
+
+(flycheck-def-config-file-var flycheck-go-revive-config go-revive "revive_config.toml")
+(setq flycheck-go-revive-executable "/home/jacobseth/go/bin/revive")
+(defun flycheck-gorevive--find-project-root (_checker)
+  (locate-dominating-file (or buffer-file-name default-directory) "revive_config.toml"))
+
+(flycheck-define-checker go-revive
+  "Drop-in replacement of golint.
+See URL `https://github.com/mgechev/revive'."
+  :command ("revive"
+            (config-file "--config" flycheck-go-revive-config)
+            source)
+  :working-directory flycheck-gorevive--find-project-root
+  :error-patterns
+  ((warning line-start (file-name) ":" line ":" column ": " (message) line-end))
+  :modes go-mode
+  :next-checkers (go-vet
+                  ;; Fall back, if go-vet doesn't exist
+                  go-build go-test go-errcheck go-unconvert))
+
+(add-to-list 'flycheck-checkers 'go-revive)
+
 (use-package go-mode
   :straight t)
 

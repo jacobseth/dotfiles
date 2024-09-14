@@ -6,6 +6,9 @@
 (use-package pipenv
   :straight t)
 
+(use-package python-pytest
+  :straight t)
+
 (use-package lsp-python-ms
   :straight t
   :init (setq lsp-python-ms-auto-install-server t)
